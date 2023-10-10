@@ -1,0 +1,64 @@
+version: "3.1"
+
+rules:
+
+- rule: Greet user
+  steps:
+  - intent: greet
+  - action: Greet_by_name
+  - action: utter_provide_options
+
+- rule: Goodbye user
+  steps:
+  - intent: goodbye
+  - action: Bye_by_name
+
+- rule: Say 'I am a bot' anytime the user challenges
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+- rule: Activate password form
+  steps:
+  - intent: forget_password
+  - action: reset_password_form
+  - active_loop: reset_password_form
+
+
+- rule: Submit password form
+  condition:
+  - active_loop: reset_password_form
+  steps:
+  - action: reset_password_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_ask_new_password
+  - intent: provide_new_password
+  - action: Change_password
+  - action: utter_anything_else
+
+- rule: Change password
+  steps:
+  - intent: provide_new_password
+  - action: Change_password
+  - action: utter_anything_else
+
+- rule: Human service
+  steps:
+  - intent: switch_human_service
+  - action: utter_human_service
+
+- rule: Single stage fallback | ask user what they meant
+  steps:
+  - intent: out_of_scope
+  - action: action_default_ask_affirmation
+
+- rule: Single stage fallback | call default fallback if user is not OK with the given options
+  steps:
+  - action: action_default_ask_affirmation
+  - intent: out_of_scope
+  - action: action_default_fallback
+
+
+

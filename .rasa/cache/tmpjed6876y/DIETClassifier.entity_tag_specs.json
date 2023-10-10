@@ -1,0 +1,52 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-account",
+      "2": "I-account",
+      "3": "L-account",
+      "4": "U-account",
+      "5": "B-company_type",
+      "6": "I-company_type",
+      "7": "L-company_type",
+      "8": "U-company_type",
+      "9": "B-name",
+      "10": "I-name",
+      "11": "L-name",
+      "12": "U-name",
+      "13": "B-password",
+      "14": "I-password",
+      "15": "L-password",
+      "16": "U-password",
+      "17": "B-security_number",
+      "18": "I-security_number",
+      "19": "L-security_number",
+      "20": "U-security_number",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-account": 1,
+      "I-account": 2,
+      "L-account": 3,
+      "U-account": 4,
+      "B-company_type": 5,
+      "I-company_type": 6,
+      "L-company_type": 7,
+      "U-company_type": 8,
+      "B-name": 9,
+      "I-name": 10,
+      "L-name": 11,
+      "U-name": 12,
+      "B-password": 13,
+      "I-password": 14,
+      "L-password": 15,
+      "U-password": 16,
+      "B-security_number": 17,
+      "I-security_number": 18,
+      "L-security_number": 19,
+      "U-security_number": 20,
+      "O": 0
+    },
+    "num_tags": 21
+  }
+]

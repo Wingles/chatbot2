@@ -1,0 +1,40 @@
+version: '3.0'
+services:
+
+  nginx:
+  
+      image: nginx:latest
+  
+      ports:
+  
+        - 8088:80
+  
+      volumes:
+  
+        - ./nginx/conf/conf.d/:/etc/nginx/conf.d/
+
+        - ./nginx/app:/app
+  rasa:
+
+    image: rasa/rasa:latest-full
+
+    ports:
+
+      - 5005:5005
+    volumes:
+
+      - ./:/app
+
+    command:
+
+      - run
+
+  action_server:    
+
+    image: rasa/rasa-sdk:latest    
+
+    volumes:     
+      
+      - ./:/app/
+    ports:
+      - 5055:5055

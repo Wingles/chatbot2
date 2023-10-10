@@ -1,0 +1,119 @@
+version: '3.1'
+intents:
+- affirm
+- bot_challenge
+- deny
+- forget_password
+- goodbye
+- greet
+- out_of_scope
+- provide_account
+- provide_company_type
+- provide_feedback
+- provide_new_password
+- provide_security_number
+- query_company_information
+- query_login_or_registration_question
+- switch_human_service
+slots:
+  name:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: name
+  account:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: account
+  security_number:
+    type: text
+    influence_conversation: true
+    mappings:
+    - type: from_entity
+      entity: security_number
+  company_type:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: company_type
+  password:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: password
+responses:
+  utter_goodbye:
+  - text: Bye
+  utter_goodbye_by_name:
+  - text: Bye {name}
+  - text: See you {name}
+  - text: See you later {name}
+  - text: Bye bye {name}
+  utter_anything_else:
+  - text: Do you need help with something else
+  utter_thank_feedback:
+  - text: Thanks for your feedback, it helps a lot
+  utter_greet:
+  - text: Hey, how are you
+  - text: Hi, how are you
+  - text: Hello, how are you
+  - text: Hi there, how are you
+  utter_greet_by_name:
+  - text: Hey {name}, how are you
+  - text: Hi {name}, how are you
+  - text: Hello {name}, how are you
+  - text: Hi there {name}, how are you
+  utter_provide_options:
+  - text: "' Here are the things I can do for: 1.Display company information 2.Questions about log in/registration 3.Switch to human service '"
+  utter_query_company_options:
+  - text: Sure! Here is information about the bank and insurance, which one would you like to see?
+  utter_feedback:
+  - text: Would you like to write some feedback about my services
+  utter_apology:
+  - text: sorry, i do not have the answer for that.
+  utter_human_service:
+  - text: OK, transferring you to human service...
+  utter_iamabot:
+  - text: I am a bot, providing bank and insurance services.
+  utter_display_bank_information:
+  - text: Here is information about the bank
+  utter_display_insurance_information:
+  - text: Here is information about the insurance
+  utter_ask_account:
+  - text: Please input your account(start with '0' and followed by 3 numbers)
+  utter_ask_security_number:
+  - text: Please input your security number(start with '1' and followed by 3 numbers)
+  utter_ask_new_password:
+  - text: Please input your new password(start with 2 letters and followed by 6 numbers)
+  utter_what_question:
+  - text: OK, please tell me the problem that you meet(1. I forgot my password 2. I want to change my password 3. I want to switch to human service)
+  utter_password_error:
+  - text: please provide proper format password with 2 letter ahead and six numbers behind, like 'kg123456'
+entities:
+- security_number
+- password
+- account
+- company_type
+- name
+actions:
+- utter_greet_by_name
+- Change_password
+- Greet_by_name
+- action_default_fallback
+- action_default_ask_affirmation
+- query_company_details
+- validate_reset_password_form
+- Bye_by_name
+forms:
+  reset_password_form:
+    required_slots:
+    - account
+    - security_number
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

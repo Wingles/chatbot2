@@ -1,0 +1,10 @@
+[
+  {
+    "name": "account",
+    "pattern": "^0\\d{3}$"
+  },
+  {
+    "name": "security_number",
+    "pattern": "^1\\d{3}$"
+  }
+]

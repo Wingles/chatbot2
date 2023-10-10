@@ -1,0 +1,196 @@
+version: "3.1"
+nlu:
+- intent: greet
+  examples: |
+    - hey, I am [Ross](name)
+    - hello, I am [Ross](name)
+    - hi, I am [Ross](name)
+    - hi, [ben](name)
+    - hello, this is [Yang](name)
+    - hi, [yangda](name) is calling
+    - hello there, this is [akada](name)
+    - good morning, [Zhang Mingyu](name) is here
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning, [Ross](name) is here
+    - goodevening, [Ross](name) is here
+    - good afternoon, [Ross](name) is here
+    - hey, i am [ross](name)
+    - hey, this is [ross](name)
+    - hey, this is [yangda](name)
+    - hey, i am [sdaa](name)
+    - hello, this is [sda](name)
+    - hi
+- intent: goodbye
+  examples: |
+    - cu
+    - good by
+    - good night
+    - bye
+    - goodbye
+    - see you later
+    - see you around
+    - have a nice day
+    - bye bye
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - ok
+    - great
+    - right, thank you
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - no thanks
+    - thanks but no thanks
+    - no thank you
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+- intent: query_company_information
+  examples: |
+    - I would like to see the information about the company.
+    - I would like some information about company
+    - Can you provide some company information
+    - i would like to see some company information
+    - company information
+    - company
+    - company info
+    - company details
+    - company detail
+- intent: provide_company_type
+  examples: |
+    - [bank](company_type)
+    - [insurance](company_type)
+- intent: provide_feedback
+  examples: |
+    - Your service is great
+    - Your service is good
+    - I feel comfortable with your service
+    - I am satisfied with your service
+    - I am happy with your service
+    - I am not satisfied with your service
+    - I am not happy with your service
+    - I am not comfortable with your service
+    - Your service is bad
+    - Your service is terrible
+    - Your service is awful
+    - Your service is not good
+- intent: query_login_or_registration_question
+  examples: |
+    - I would like to ask something about login and registration
+    - Is there some common question for login and registration
+    - Could you provide some login and registration information
+    - i would like to ask about login
+    - I want to ask something about log in and registration
+    - log in
+    - Can you provide some info about registration
+    - registration
+    - Can you provide some info about log in
+    - Can you provide some info about log in and registration
+    - Can you provide some info about registration and log in
+    - Can you provide some info about registration and login
+    - Can you provide some info about log in and register
+    - login
+- intent: switch_human_service
+  examples: |
+    - Please switch to human service
+    - I would like a human executive
+    - Connect me to a real human
+    - I want to talk to a human
+    - I want to talk to a real person
+    - I want to talk to a real human
+    - I want to talk to a real representative
+    - I want to talk to a real agent
+    - I want to talk to a real employee
+    - I want to talk to a real staff
+- intent: provide_account
+  examples: |
+    - [0312](account)
+    - [0313](account)
+    - [0314](account)
+    - [0315](account)
+    - [0316](account)
+    - [0317](account)
+    - [0318](account)
+    - [0612](account)
+    - [0613](account)
+    - [0614](account)
+    - [0369](account)
+    - [0111](account)
+    - [0111](account)
+- intent: provide_security_number
+  examples: |
+    - [1111](security_number)
+    - [1234](security_number)
+    - [1586](security_number)
+    - [1312](security_number)
+    - [1235](security_number)
+    - [1345](security_number)
+    - [1236](security_number)
+    - [1246](security_number)
+    - [1256](security_number)
+    - [1111](security_number)
+- intent: forget_password
+  examples: |
+    - I forget my password, what could I do
+    - Can you help me reset my password
+    - Oh god, I have lost my password
+    - Sorry, I can not remember my account password
+    - i forget my password, jesus!
+    - i lose my password
+    - lose password
+    - how can I reset my password
+    - I want to reset my password
+    - I want to change my password
+    - I want to change my account password
+- intent: provide_new_password
+  examples: |
+    - [yd123456](password)
+    - [wc573686](password)
+    - [wc573687](password)
+    - [wc573688](password)
+    - [wc653689](password)
+    - [jg552690](password)
+    - [jg552691](password)
+    - [jg552692](password)
+    - [cd345678](password)
+    - [yd124151](password)
+    - [th123456](password)
+    - [wg456782](password)
+- intent: out_of_scope
+  examples: |
+    - What is the weather like in Australia?
+    - Can you fly?
+    - I love you.
+    - What is your favourite movie?
+    - Do you like Titanic?
+    - FUBAR
+    - I LOVe you
+- regex: account
+  examples: |
+    - ^0\d{3}$
+- regex: security_number
+  examples: |
+    - ^1\d{3}$
+- regex: password
+  examples: |
+    - ^[a-z]{2}\d{6}$
